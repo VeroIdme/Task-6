@@ -1,7 +1,12 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import { useDispatch } from 'react-redux'
+import { addProductCar } from '../../store/slices/cart.slice'
 
-const ProductInfo = ({product}) => {
+const ProductInfo = ({product, id}) => {
     const [quantity, setQuantity] = useState(1)
+
+    const dispatch = useDispatch()
+
     const handleMinus = () => {
         const newNumber = quantity - 1
         if(newNumber >= 1) setQuantity(newNumber)
@@ -10,7 +15,17 @@ const ProductInfo = ({product}) => {
     const handlePlus = () => {
         setQuantity(quantity + 1)
     }
-
+   
+    const handleClickAddProduct = () => {
+        const data = {
+            quantity,
+            productId: product.id
+        }
+        dispatch(addProductCar(data))
+    }
+    useEffect(() => {
+        setQuantity(1)
+    }, [id])
   return (
     <article>
         <h2>{product?.title}</h2>
@@ -26,7 +41,7 @@ const ProductInfo = ({product}) => {
                 <div>{quantity}</div>
                 <div onClick={handlePlus}>+</div>
             </div>
-            <button>Add to cart <i class='bx bx-cart-add'></i></button>
+            <button onClick={handleClickAddProduct}>Add to cart <i class='bx bx-cart-add'></i></button>
         </footer>
     </article>
   )

@@ -8,16 +8,17 @@ const Home = () => {
   const [nameProduct, setNameProduct] = useState('')
   const [category, setCategory] = useState('')
   const [filterProducts, setFilterProducts] = useState([])
+  
   const products = useSelector(state => state.productsSlice)
 
   const dispatch = useDispatch()
 
   const handleSubmit = e => {
     e.preventDefault()
-    const newName = e.target.name.value
+    const newName = e.target.nameProduct.value
     setNameProduct(newName)
   }
-
+  
   useEffect(() => {
     dispatch(getProductsGlobal())
   }, [])
@@ -25,18 +26,21 @@ const Home = () => {
   useEffect(() => {
     setFilterProducts(products)
   }, [products])
-  console.log(products)
+ 
   useEffect(() => {
-    const newProducts = products.filter(product => product.title.include(nameProduct) && (product.category.id === category || category === ''))
+    const newProducts = products.filter(product => product.title.toLowerCase().includes(nameProduct) &&
+    (product.category.id == category || !category))
     setFilterProducts(newProducts)
+    
+    console.log(newProducts)
   }, [nameProduct, category])
   
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <div>
-        <input type="text" name='name' placeholder='What are you looking for?' />
-        <button><i class='bx bx-search'></i></button>
+        <input type="text" name='nameProduct' placeholder='What are you looking for?' />
+        <button><i className='bx bx-search'></i></button>
         </div>
       </form>  
       <Categories setCategory={setCategory}/>

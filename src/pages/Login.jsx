@@ -6,12 +6,16 @@ import { loginUserThunk, logoutThunk } from '../store/slices/userInfo.slice'
 const Login = () => {
   const {token, user} = useSelector(state => state.userInfoSlice)
 
-  const{register, handleSubmit} = useForm()
+  const{register, handleSubmit, reset} = useForm()
 
   const dispatch = useDispatch()
 
   const submit = data => {
     dispatch(loginUserThunk(data))
+    reset({
+      email: '',
+      password: ''
+    })
   }
 
   const handleClickLogout = () => {
