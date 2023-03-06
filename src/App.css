@@ -88,6 +88,9 @@ h4.count{
     background-color: inherit;
     cursor: pointer;
 }
+button.log{
+    width: 60px;
+}
 .btn-log:hover{
     border: 1px solid #444544 ;
 }

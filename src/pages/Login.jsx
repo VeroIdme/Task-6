@@ -28,7 +28,7 @@ const Login = () => {
           <section className='container-logout'>
             <i className='bx bx-user-circle'></i>
             <h3 className='name-user'>{`${user.firstName} ${user.lastName}`}</h3>
-            <button className='btn-log' onClick={handleClickLogout}>Logout</button>
+            <button className='btn-log log' onClick={handleClickLogout}>Logout</button>
           </section>
         ): (
           <form onSubmit={handleSubmit(submit)}>
@@ -46,7 +46,7 @@ const Login = () => {
           <label > Password</label>
           <input type="password" {...register('password')} />
         </div>
-        <button className='btn-log'>Login</button>
+        <button className='btn-log log'>Login</button>
         <p>Don't have an account? <span>Sign up</span></p>
       </form>
         )
