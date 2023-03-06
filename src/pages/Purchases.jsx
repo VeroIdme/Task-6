@@ -15,8 +15,8 @@ const Purchases = () => {
     <main>
       <section>
         <section>
-          <h3>My purchases</h3>
-          <section>
+          <h3 className='title-info'>My purchases</h3>
+          <section className='container-cards'>
             {
                 purchases.map(purchase => (
                   <PuchaseCard key={purchase.id} purchase={purchase} />

@@ -27,21 +27,26 @@ const ProductInfo = ({product, id}) => {
         setQuantity(1)
     }, [id])
   return (
-    <article>
-        <h2>{product?.title}</h2>
-        <p>{product?.description}</p>
-        <footer>
-            <div>
+    <article className='container-info'>
+        <div className='container-info-img'>
+            <img src={`${product?.images[0].url}`} alt="" />
+        </div>
+        <h2 className='title-info'>{product?.title}</h2>
+        <p className='description-info'>{product?.description}</p>
+        <footer className='info-footer'>
+            <div className='info-price'>
                 <h3>Price</h3>
                 <span>{product?.price}</span>
             </div>
-            <div>
+            <div className='info-price'>
                 <h3>Quantity</h3>
-                <div onClick={handleMinus}>-</div>
-                <div>{quantity}</div>
-                <div onClick={handlePlus}>+</div>
+                <div className='cont-btn'>
+                   <div className='btn-price' onClick={handleMinus}>-</div>
+                   <div className='btn-price'>{quantity}</div>
+                   <div className='btn-price' onClick={handlePlus}>+</div> 
+                </div>
+                <button className='btn-info' onClick={handleClickAddProduct}>Add to cart <i class='bx bx-cart-add'></i></button>
             </div>
-            <button onClick={handleClickAddProduct}>Add to cart <i class='bx bx-cart-add'></i></button>
         </footer>
     </article>
   )

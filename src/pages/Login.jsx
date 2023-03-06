@@ -22,31 +22,31 @@ const Login = () => {
     dispatch(logoutThunk())
   }
   return (
-    <main>
+    <main className='container-login'>
       {
         token? (
-          <section>
+          <section className='container-logout'>
             <i className='bx bx-user-circle'></i>
-            <h3>{`${user.firstName} ${user.lastName}`}</h3>
-            <button onClick={handleClickLogout}>Logout</button>
+            <h3 className='name-user'>{`${user.firstName} ${user.lastName}`}</h3>
+            <button className='btn-log' onClick={handleClickLogout}>Logout</button>
           </section>
         ): (
           <form onSubmit={handleSubmit(submit)}>
         <h3>Welcome! Enter your email and password to continue</h3>
-        <div>
+        <div className='test-data'>
           <h4>Test data</h4>
           <p><i className='bx bx-envelope'></i> john@gmail.com</p>
           <p><i className='bx bx-lock-alt'></i> john1234</p>
         </div>
-        <div>
+        <div className='container-data'>
           <label>Email</label>
           <input type="email" {...register('email')} />
         </div>
-        <div>
+        <div className='container-data'>
           <label > Password</label>
           <input type="password" {...register('password')} />
         </div>
-        <button>Login</button>
+        <button className='btn-log'>Login</button>
         <p>Don't have an account? <span>Sign up</span></p>
       </form>
         )

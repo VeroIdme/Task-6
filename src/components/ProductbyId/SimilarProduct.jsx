@@ -18,7 +18,7 @@ const SimilarProduct = ({product, categories}) => {
     }, [product, categories])
 
   return (
-    <section>
+    <section className='container-cards'>
        {
         productsByCategory?.map(productByCategory => <CardProduct product={productByCategory } key={productByCategory.id}/>)
        }

@@ -20,14 +20,13 @@ const Cart = () => {
 
   return (
     <main>
-      <section>
+      <section className='container-cards'>
         {
           products.map(cartProduct => <CartProduct key={cartProduct.id} cartProduct={cartProduct}/>)
         }
       </section>
-      <section>
-        <h3>Total</h3>
-        <h3>{totalPriceCart}</h3>
+      <section className='container-total'>
+        <h3>Total: {totalPriceCart}</h3>
         <button onClick={handlePurchaseCart}>Checkout</button>
       </section>
     </main>

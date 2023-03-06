@@ -29,22 +29,23 @@ const CartProduct = ({cartProduct}) => {
   }
 
   return (
-    <article>
-      <div>
+    <article className='containerCard'>
+      <div className='containerCard__img'>
         <img src={cartProduct.product.images[0].url} alt="" />
       </div>
-      <section>
-        <h3>{cartProduct.product.title}</h3>
-        <div>
+      <section className='container-cart-info'>
+        <h3 className='title-cart'>{cartProduct.product.title}</h3>
+        <div className='cart-quantity'>
           <button onClick={handleLess}>-</button>
           <h3>{cartProduct.quantity}</h3>
           <button onClick={handlePlus}>+</button>
         </div>
-      </section>
-        <footer>
+        <footer className='footer-cart'>
             <i onClick={handleDelete} className='bx bx-trash'></i>
             <h3><span>Total</span>${cartProduct.quantity * cartProduct.product.price}</h3>
         </footer>
+      </section>
+        
     </article>
   )
 }

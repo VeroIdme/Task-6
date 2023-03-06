@@ -3,19 +3,19 @@ import {formatDate} from "../../utils/data"
 
 const PuchaseCard = ({purchase}) => {
   return (
-    <article>
+    <article className='containerCard purchase-cont'>
         <div>
-         <div>
+         <div className='containerCard__img'>
             <img src={purchase.product.images[0].url} alt="product" />
         </div>
-            <h4>{purchase.product.title}</h4>
+            <h4 className='title-purchase'>{purchase.product.title}</h4>
         </div>
         <div>
-            <h4>{formatDate(purchase.createdAt)}</h4>
-        <div>
-            <h4>{purchase.quantity}</h4>
-        </div>
-            <h4>$ {purchase.product.price}</h4>
+            <h4 className='titles-puchase'> Date: {formatDate(purchase.createdAt)}</h4>
+        <div> 
+            <h4 className='titles-puchase'> Quantity: {purchase.quantity}</h4>
+        </div> 
+            <h4 className='titles-puchase'>Price: $ {purchase.product.price}</h4>
          </div>
      </article>
   )

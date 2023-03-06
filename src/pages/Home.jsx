@@ -37,19 +37,20 @@ const Home = () => {
   
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form className='form-search' onSubmit={handleSubmit}>
+        <div className='container-form'>
         <input type="text" name='nameProduct' placeholder='What are you looking for?' />
-        <button><i className='bx bx-search'></i></button>
+        <button className='btn-log'><i className='bx bx-search'></i></button>
         </div>
       </form>  
       <Categories setCategory={setCategory}/>
-    
+      <section className='container-cards'>
       {
         filterProducts.map(product => (
           <CardProduct product={product} key={product.id}/>
         ))
       }
+      </section>
     </div>
   )
 }

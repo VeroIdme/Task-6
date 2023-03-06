@@ -16,8 +16,10 @@ const Categories = ({setCategory}) => {
     
   return (
     <section>
-        <ul>
+        
+        <ul className='container-cat'>
             <li onClick={() => handleClick('')}>All products</li>
+            <h4>Categories</h4>
             {
                 categories?.map(category => <li onClick={() => handleClick(category.id)} key={category.id}>{category.name}</li>)
             }
